@@ -1,3 +1,4 @@
+
 import { PdfProvider } from "./context/pdfContext";
 import "./globals.css";
 import localFont from "next/font/local";
@@ -17,14 +18,17 @@ const FontBold = localFont({
   variable: "--font-Bold",
 });
 
-
-
 export const metadata = {
-  title: "Javix Tech",
-
+  title: "Javix Flipbook",
+  description: "Create and share flipbooks easily",
 };
 
+
+
+
 export default function RootLayout({ children }) {
+    const isBrowser = typeof window !== "undefined";
+  const is404 = isBrowser && window.location.pathname === "/404";
   
   return (
     <html lang="en" className="scroll-smooth">
